@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href = "bootstrap-4.3.1-dist\css\bootstrap.min.css" type= "text/css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script type = "text/javascript" src = "bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>
+<link href="style.css" type="text/css" rel="stylesheet">
+<link href="script.js" type="text/javascript" >
+<title> vehicle registration</title>
+<script>
+function validateForm() {
+  var x = document.forms["form"]["name"].value;
+  var y = /^[a-zA-Z]+$/;
+  var z = /^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$/;
+  var a = document.forms["form"]["regnam"].value;
+  if (x.match(y)) {
+    return true;
+  }
+  else
+  {
+  alert("please enter only letter");
+  return false;
+  }
+}
+function validateregnum() {
+   var a = document.forms["form"]["regnam"].value;
+   var z = /^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$/;
+   if(a.match(z)){
+	return true;
+	}
+	else
+	{
+	alert("enter valid registration number");
+	return false;
+	}
+} 
+</script>
+</head>
+<body>
+<center>
+<div class ="Jumbatron">
+<h3><b>VEHICLE REGISTRATION<b></h3>
+</div>
+<div class = "col-sm-4">
+<div class = "card">
+<form name="form" onsubmit="return validateForm()"  action="">
+<p>NAME:<input type ="text" placeholder= "your name" class ="form-control" name="name" required></p>
+<p>ADDRESS:<input type ="text"placeholder= "home address" class ="form-control"></p>
+<p>VEHICLE BRAND:<input type = "text"placeholder= "vehicle brand" class ="form-control"></p>
+<p>VEHICLE MODEL:<input type = "text"placeholder= "vehicle model" class ="form-control"></p> 
+<p>REGISTRATION NUMBER:<input type = "text"placeholder= "registered number" class ="form-control" name="regnam" pattern="(^[A-Z]{2})([ -][0-9]{1,2}((?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$" title = "enter the vehicle registration number"></p> 
+<p>DATE<input type = "date" class ="form-control"></p>
+<input type ="submit" class="form-control" value= "submit" onclick = "return validateregnum()"> 
+</form>
+</div>
+</div>
+</center>
+</body>
+</html>
