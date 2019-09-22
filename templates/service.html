@@ -18,9 +18,9 @@
         <center>TRAFFIC VIOLATION MANAGEMENT</center>
         </h3>
 		<div class= "right">
-		<a href = "main.html"> Home<i class ="fas fa-home">&nbsp | &nbsp </i></a>
-		<a href="aboutus.html">About Us <i class="fas fa-file"> &nbsp | &nbsp </i> </a>
-		<a href="service.html">Services <i class="fas fa-list-alt"></i></a>
+      <a href = "{% url 'index'%}"> Home<i class ="fas fa-home">&nbsp | &nbsp </i></a>
+      <a href="{% url 'aboutus'%}">About Us <i class="fas fa-file"> &nbsp | &nbsp </i> </a>
+      <a href="{% url 'service'%}">Services <i class="fas fa-list-alt"></i></a>
 		<div class="dropdown">
   <button type="button" class="btn btn-link" data-toggle="dropdown">
     Login &nbsp<i class="fas fa-user"></i>
