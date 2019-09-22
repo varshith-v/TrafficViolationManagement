@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href = "bootstrap-4.3.1-dist\css\bootstrap.min.css" type= "text/css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -36,70 +37,78 @@ function validatetelnum() {
 } 
 </script>
 </head>
+
 <body>
-<center>
-<div class = "card bg-secondary col-sm-5">
-<div class ="Jumbatron">
-<h3><b>DRIVING LICENCE REGISTRATION<b></h3><br>
-</div>
-<form name="form" onsubmit="return validateForm()"  action="">
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Name</span>
-</div>
-<input type ="text" placeholder= "your name" class ="form-control" name="name" required>
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Date</span>
-</div>
-<input type = "date" class ="form-control">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">contact</span>
-</div>
-<input type = "tel" class ="form-control" placeholder="your phone number" name="tel" required>
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Address</span>
-</div>
-<input type ="text"placeholder= "home address" class ="form-control">
-</div>
-<span class="input-group-text">Categories</span>
-<div class = "form-check">
- <label class = "form-check-label">
- <input type = "checkbox" class = "form-check-input">Motorcycle without gear</label>
- </div>
- <div class = "form-check">
- <label class = "form-check-label">
- <input type = "checkbox" class = "form-check-input">Motorcycle with Gear</label>
- </div>
- <div class = "form-check">
- <label class = "form-check-label">
- <input type = "checkbox" class = "form-check-input">Light Motor Vehicle</label>
- </div>
- <div class = "form-check">
- <label class = "form-check-label">
- <input type = "checkbox" class = "form-check-input">Heavy Motor Vehicle</label>
- </div>
- <div class = "form-check">
- <label class = "form-check-label">
- <input type = "checkbox" class = "form-check-input">Medium Goods Vehicle</label>
- </div>
- <div class = "form-check">
- <label class = "form-check-label">
- <input type = "checkbox" class = "form-check-input">Heavy Goods Vehicle</label>
-</div>
-<input type ="submit" class="form-control" value= "submit" onclick = "return validatetelnum()"> 
-</form>
-</div>
-</center>
-<div class="footer">
-		<p id ="contact"> contact : +91 678736258 | 0821 - 6785403 </p>
-	</div>
+  {%block content%}
+  <center>
+    <div class="card bg-secondary col-sm-5">
+      <div class="Jumbatron">
+        <h3><b>DRIVING LICENCE REGISTRATION<b></h3><br>
+      </div>
+      <form name="form" onsubmit="return validateForm()" action="dlRegister" method="POST">
+
+      {% csrf_token %}
+
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Name</span>
+          </div>
+          <input type="text" placeholder="your name" class="form-control" name="name" required>
+        </div>
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Date</span>
+          </div>
+          <input type="date" class="form-control" name = "dob">
+        </div>
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">contact</span>
+          </div>
+          <input type="tel" class="form-control" placeholder="your phone number" name="phNo" required>
+        </div>
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Address</span>
+          </div>
+          <input type="text" placeholder="home address" class="form-control" name="address">
+        </div>
+        <span class="input-group-text">Categories</span>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value= "MCWOG"name = "category">Motorcycle without gear</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value="MCWG"name = "category">Motorcycle with Gear</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value="LMV"name = "category">Light Motor Vehicle</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value="HMV"name = "category">Heavy Motor Vehicle</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value="MGV"name = "category">Medium Goods Vehicle</label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" value="HGV"name = "category">Heavy Goods Vehicle</label>
+        </div>
+        <input type="submit" class="form-control" value="submit" onclick="return validatetelnum()">
+      </form>
+    </div>
+  </center>
+  <div class="footer">
+    <p id="contact"> contact : +91 678736258 | 0821 - 6785403 </p>
+  </div>
+  {% endblock %}
 </body>
+
 </html>
 </body>
+
 </html>

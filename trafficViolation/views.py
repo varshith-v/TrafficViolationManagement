@@ -3,15 +3,15 @@ import trafficViolation.database as db
 
 # Create your views here.
 def home(request):
-    return render(request,'dummyDL.html')
+    return render(request,'dlregister.html')
 
 def dlRegister(request):
     phNo = request.POST.get('phNo')
     name = request.POST.get('name')
     dob = request.POST.get('dob')
     address = request.POST.get('address')
-    categories = request.POST.get('categories')
-
+    categories_list = request.POST.getlist('category')
+    categories = ','.join(categories_list)
     connection = db.get_connection()
     cursor = connection.cursor()
 
