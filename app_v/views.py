@@ -30,3 +30,31 @@ def registerVehicle(request):
 
     print(cursor.rowcount,"record inserted")
     return render(request,'vehicle registration.html')
+
+def authOfficer(request):
+    db = mysql.connect(
+    host = "localhost",
+    user = "remote",
+    passwd = "tekSystems",
+    database = "traffic"
+    )
+    cursor = db.cursor()
+    
+    inputID = request.POST.get('id')
+    inputPassword = request.POST.get('password')
+    
+    query = "SELECT * FROM officers WHERE id="+inputID 
+    cursor.execute(query)
+    
+    if not cursor.rowcount:
+        return render(request, 'official_login.html', {'some_flag': True})
+
+
+    for row in cursor:
+        if row[1] == inputPassword:
+            return render(request,'loggedin.html')
+        else:
+            return render(request, 'official_login.html', {'some_flag': True})
+
+
+    
