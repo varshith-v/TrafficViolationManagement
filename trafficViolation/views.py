@@ -2,8 +2,14 @@ from django.shortcuts import render
 import trafficViolation.database as db
 
 # Create your views here.
-def home(request):
-    return render(request,'dlregister.html')
+def index(request):
+    return render(request,'main.html')
+
+def aboutus(request):
+    return render(request,'aboutus.html')
+
+def service(request):
+    return render(request,'service.html')
 
 def dlRegister(request):
     phNo = request.POST.get('phNo')

@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html >
 <head>
     <link rel="stylesheet" href = "bootstrap-4.3.1-dist\css\bootstrap.min.css" type= "text/css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,16 +18,16 @@
         <center>TRAFFIC VIOLATION MANAGEMENT</center>
         </h3>
 		<div class= "right">
-		<a href = "main.html"> Home<i class ="fas fa-home">&nbsp | &nbsp </i></a>
-		<a href="aboutus.html">About Us <i class="fas fa-file"> &nbsp | &nbsp </i> </a>
-		<a href="service.html">Services <i class="fas fa-list-alt"></i></a>
+		<a href = "{% url 'index'%}"> Home<i class ="fas fa-home">&nbsp | &nbsp </i></a>
+		<a href="{% url 'aboutus'%}">About Us <i class="fas fa-file"> &nbsp | &nbsp </i> </a>
+		<a href="{% url 'service'%}">Services <i class="fas fa-list-alt"></i></a>
 		<div class="dropdown">
   <button type="button" class="btn btn-link" data-toggle="dropdown">
     Login &nbsp<i class="fas fa-user"></i>
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="user_login.html">User Login</a>
-    <a class="dropdown-item" href="official_login.html">Admin Login</a>
+    <a class="dropdown-item" href="{% static 'user_login.html'%}">User Login</a>
+    <a class="dropdown-item" href="{% static 'official_login.html'%}">Admin Login</a>
   </div>
 </div>
 </div>
