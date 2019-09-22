@@ -55,6 +55,29 @@ color: #f07e1a;
 	background-size:cover;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $(function() {
+          $( "#some_flag" ).dialog({
+              modal: true,
+              closeOnEscape: false,
+              dialogClass: "no-close",
+              resizable: false,
+              draggable: false,
+              width: 600,
+              buttons: [
+                  {
+                      text: "OK",
+                      click: function() {
+                      $( this ).dialog( "close" );
+                      }
+                  }
+              ]
+          });
+      });
+  });
+</script>
 </head>
 <body id ="imag">
 <div class="split right">
@@ -66,12 +89,14 @@ color: #f07e1a;
 	<br>
     <label for="psw"><b>Password</b></label><br>
     <input type="password" name="password" placeholder="Enter Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-    
-    <script>
-        alert('{{ message }}');
-    </script>
+
     <input type="submit" value="Submit">
   </form>
+  {% if fail %}
+    <div id="some_flag" title="Some Flag">
+        <p>Invalid Credentials</p>
+    </div>
+    {% endif %}
 </div>
 </div>
 </body>

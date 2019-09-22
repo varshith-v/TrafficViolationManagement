@@ -47,14 +47,14 @@ def authOfficer(request):
     cursor.execute(query)
     
     if not cursor.rowcount:
-        return render(request, 'official_login.html', {'some_flag': True})
+        return render(request, 'official_login.html', {'fail': True})
 
 
     for row in cursor:
         if row[1] == inputPassword:
             return render(request,'loggedin.html')
         else:
-            return render(request, 'official_login.html', {'some_flag': True})
+            return render(request, 'official_login.html', {'fail': True})
 
 
     
