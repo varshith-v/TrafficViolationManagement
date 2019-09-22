@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href = "bootstrap-4.3.1-dist\css\bootstrap.min.css" type= "text/css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script type = "text/javascript" src = "bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>
+<link href="useracc.css" type="text/css" rel="stylesheet">
+<link href="script.js" type="text/javascript" >
+<title> vehicle registration</title>
+<script type="text/javascript">
+function validateForm() {
+  var x = document.forms["form"]["name"].value;
+  var y = /^[a-zA-Z]+$/;
+  var z = /^[A-Z]{2}([ \-])[0-9]{2}[ ,][A-Z0-9]{1,2}[A-Z]\1[0-9]{4}$/;
+  var a = document.forms["form"]["regnam"].value;
+  if (x.match(y)) {
+    return true;
+  }
+  else
+  {
+  alert("please enter only letter");
+  return false;
+  }
+}
+function validatepsw() {
+	var psw = document.getElementById("psw"),confirmpsw=document.getElementById("confirmpsw");
+	if(psw.value != confirmpsw.value)
+	{
+		confirmpsw.setCustomValidity("Passwords doesnt match");
+		return false;
+	}
+	else {
+		confirmpsw.setCustomValidity("");
+		return true;
+	}
+}
+function validateregnum() {
+   var a = document.forms["form"]["regnam"].value;
+   var z = /^[A-Z]{2}([ \-])[0-9]{2}[ ,][A-Z0-9]{1,2}[A-Z]\1[0-9]{4}$/;
+   if(a.match(z)){
+	return true;
+	}
+	else
+	{
+	alert("enter valid registration number");
+	return false;
+	}
+} 
+</script>
+</head>
+<body>
+<center>
+<div class = "card bg-secondary col-sm-5">
+<div class ="Jumbatron">
+<h3><b>USER REGISTRATION<b></h3>
+</div>
+<form name="form" onsubmit="return validateForm()" method="post">
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">Name</span>
+</div>
+<input type ="text" placeholder= "your name" class ="form-control" name="name" required>
+</div>
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">Registration number</span>
+</div>
+<input type = "text"placeholder= "registered number" class ="form-control" name="regnam" pattern="(^[A-Z]{2})([ -][0-9]{1,2}((?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$" title = "enter the vehicle registration number eg:KA 09 EH 1908" required>
+</div>
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">Driving Licence No</span>
+</div>
+<input type ="text" placeholder="Enter DL number" class ="form-control" pattern="^[A-Z]{2}[0-9]{1,2}[ -][0-9]{11}$" title = "enter DL number" required>
+</div>
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">Create Password</span>
+</div>
+<input type = "password" id="psw" placeholder= "set your password" class ="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+</div>
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">Confirm Password</span>
+</div>
+<input type = "password" id="confirmpsw" placeholder= "retype your password" class ="form-control" onclick = "return validatepsw()" required>
+</div> 
+<input type ="submit" class="form-control" value= "sign up" onsubmit = "return validateregnum()"> 
+</form>
+</div>
+</center>
+</body>
+</html>
