@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <form action="dlRegister" method="POST">
+        {% csrf_token %}
+        Name:<input type="text" name = 'name'><br>
+        DOB: <input type="text" name = 'dob'><br>
+        Phone number : <input type="text" name = 'phNo'><br>
+        Address: <input type="text" name = 'address'><br>
+        Categories : <input type="text" name = 'categories'><br>
+        <input type="submit">
+    </form>
+
+    <p>{{result}}</p>
+    {% endblock %}
+    
+</body>
+</html>
