@@ -1,87 +1,97 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" href = "bootstrap-4.3.1-dist\css\bootstrap.min.css" type= "text/css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script type = "text/javascript" src = "bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>
-<link href="{% static 'style.css' %}" type="text/css" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lodging ccomplaint</title>
-<script>
-function validateregnum() {
-   var a = document.forms["form"]["regnam"].value;
-   var z = /^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$/;
-   if(a.match(z)){
-	return true;
-	}
-	else
-	{
-	alert("enter valid registration number");
-	return false;
-	}
-} 
-</script>
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist\css\bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>
+  <link href="{% static 'style.css' %}" type="text/css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lodging ccomplaint</title>
+  <script>
+    function validateregnum() {
+      var a = document.forms["form"]["regnam"].value;
+      var z = /^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$/;
+      if (a.match(z)) {
+        return true;
+      }
+      else {
+        alert("enter valid registration number");
+        return false;
+      }
+    } 
+  </script>
 </head>
+
 <body>
-<center>
-<div class = "card bg-secondary col-sm-5">
-<div class ="Jumbatron">
-<h3><b>LODGE COMPLAINT<b></h3><br>
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Registration Number</span>
-</div>
-<input type = "text"placeholder= "registered number" class ="form-control" name="regnam" pattern="(^[A-Z]{2})([ -][0-9]{1,2}((?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$" title = "enter the vehicle registration number">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Date</span>
-</div>
-<input type = "date" class ="form-control">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">place</span>
-</div>
-<input type = "text" class ="form-control" placeholder="rule violated location" name="place">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Time</span>
-</div>
-<input type ="time" placeholder= "home address" class ="form-control">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Type</span>
-</div>
-<select name="cars">
-  <option value="DWD">Driving without DL</option>
-  <option value="NWSB">Not Wearing seat Belt</option>
-  <option value="WP">Wrong parking</option>
-  <option value="JTS">Jumping Traffic Signals</option>
-  <option value="DD">Drunken Driving</option>
-  <option value="TR">Triple Riding</option>
-  <option value="NEV">No Entry Violation</option>
-  <option value="RWH">Rider without Helmet</option>
-  <option value="PWH">Pillion Without Helmet</option>
-  <option value="RWH">Over Speeding</option>
-</select>
-</div>
-<input type ="submit" class="form-control" value= "submit" onclick = "return validateregnum()"> 
-</form>
-<a href = "pay.html">
-	<button type = "button" class = "btn btn-success">PAY FINE</button></a>
-</div>
-</center>
-<div class="footer">
-		<p id ="contact"> contact : +91 678736258 | 0821 - 6785403 </p>
-	</div>
+  <center>
+    <div class="card bg-secondary col-sm-5">
+      <div class="Jumbatron">
+        <h3><b>LODGE COMPLAINT<b></h3><br>
+      </div>
+      <div class="input-group mb-3 ">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Registration Number</span>
+        </div>
+        <input type="text" placeholder="registered number" class="form-control" name="regnum"
+          pattern="(^[A-Z]{2})([ -][0-9]{1,2}((?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$"
+          title="enter the vehicle registration number">
+      </div>
+      <div class="input-group mb-3 ">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Date</span>
+        </div>
+        <input type="date" class="form-control" name="date">
+      </div>
+      <div class="input-group mb-3 ">
+        <div class="input-group-prepend">
+          <span class="input-group-text">place</span>
+        </div>
+        <input type="text" class="form-control" placeholder="rule violated location" name="place">
+      </div>
+      <div class="input-group mb-3 ">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Time</span>
+        </div>
+        <input type="time" placeholder="home address" class="form-control" name = "time">
+      </div>
+      <div class="input-group mb-3 ">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Type</span>
+        </div>
+        <select name="cars">
+          <option value="Driving without DL">Driving without DL</option>
+          <option value="Not Wearing seat Belt">Not Wearing seat Belt</option>
+          <option value="Wrong parking">Wrong parking</option>
+          <option value="Jumping Traffic Signals">Jumping Traffic Signals</option>
+          <option value="Drunken Driving">Drunken Driving</option>
+          <option value="Triple Riding">Triple Riding</option>
+          <option value="No Entry Violation">No Entry Violation</option>
+          <option value="Rider without Helmet">Rider without Helmet</option>
+          <option value="Pillion Without Helmet">Pillion Without Helmet</option>
+          <option value="Over Speeding">Over Speeding</option>
+        </select>
+      </div>
+      <input type="submit" class="form-control" value="submit" onclick="return validateregnum()">
+      </form>
+      <a href="pay.html">
+        <button type="button" class="btn btn-success">PAY FINE</button></a>
+    </div>
+  </center>
+  <div class="footer">
+    <p id="contact"> contact : +91 678736258 | 0821 - 6785403 </p>
+  </div>
 </body>
+
 </html>
 </body>
+
 </html>

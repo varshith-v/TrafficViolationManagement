@@ -40,3 +40,19 @@ def dlRegister(request):
     cursor.close()
     connection.close()
     return render(request,'result.html',{'result':'1 record successfully inserted'})
+
+def lodge_complaint(request):
+    complaints_dict = {"Driving without DL":500,"Not Wearing seat Belt":100,"Wrong parking":100,"Jumping Traffic Signals":100,
+                  "Drunken Driving":500,"Triple Riding":100,"No Entry Violation":100,"Rider without Helmet":100,"Pillion Without Helmet":100,"Over Speeding":100}
+    reg_num = request.POST.get('regnum')
+    date = request.POST.get('date')
+    place = request.POST.get('place')
+    time = request.POST.get('time')
+    violation = request.POST.get('cars')
+
+    connection = db.get_connection()
+    cursor = connection.cursor()
+    
+    query
+
+
