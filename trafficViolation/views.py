@@ -53,6 +53,6 @@ def lodge_complaint(request):
     connection = db.get_connection()
     cursor = connection.cursor()
     
-    query
+    query = 
 
 
