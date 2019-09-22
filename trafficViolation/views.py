@@ -17,6 +17,9 @@ def user_login(request):
 def official_login(request):
     return render(request,'official_login.html')
 
+def complaint(request):
+    return render(request,'complaint.html')
+
 def dlRegister(request):
     phNo = request.POST.get('phNo')
     name = request.POST.get('name')
@@ -53,6 +56,15 @@ def lodge_complaint(request):
     connection = db.get_connection()
     cursor = connection.cursor()
     
-    query = 
+    query = "INSERT INTO complaints(`regNum`, `date`, `place`, `time`, `violation`, `fine_amount`, `status`) VALUES (%s,%s,%s,%s,%s,%s,%s);"
+    values = (reg_num,date,place,time,violation,complaints_dict[violation],'Not Paid')
+
+    cursor.execute(query,values)
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+    return render(request,'result.html',{'result':'1 record successfully inserted'})
 
 

@@ -37,6 +37,9 @@
       <div class="Jumbatron">
         <h3><b>LODGE COMPLAINT<b></h3><br>
       </div>
+      <form action="complaint" method="POST">
+
+        {% csrf_token %}
       <div class="input-group mb-3 ">
         <div class="input-group-prepend">
           <span class="input-group-text">Registration Number</span>
@@ -92,9 +95,3 @@
 </body>
 
 </html>
-<<<<<<< HEAD
-</body>
-
-</html>
-=======
->>>>>>> 6a75b77b4dfd6a4956e1f290cf7180df4954a8c8
