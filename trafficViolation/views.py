@@ -11,6 +11,12 @@ def aboutus(request):
 def service(request):
     return render(request,'service.html')
 
+def user_login(request):
+    return render(request,'user_login.html')
+
+def official_login(request):
+    return render(request,'official_login.html')
+
 def dlRegister(request):
     phNo = request.POST.get('phNo')
     name = request.POST.get('name')
