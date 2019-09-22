@@ -4,6 +4,9 @@ import mysql.connector as mysql
 def vehicleRegPage(request):
     return render(request,'vehicle registration.html')
 
+def loginPage(request):
+    return render(request,'official_login.html')
+
 # Create your views here.
 def registerVehicle(request):
     db = mysql.connect(
@@ -43,11 +46,14 @@ def authOfficer(request):
     inputID = request.POST.get('id')
     inputPassword = request.POST.get('password')
     
-    query = "SELECT * FROM officers WHERE id="+inputID 
-    cursor.execute(query)
+    query = "SELECT * FROM officers WHERE id = %s"
     
-    if not cursor.rowcount:
-        return render(request, 'official_login.html', {'fail': True})
+    values = (inputID,)
+    cursor.execute(query,values)
+    
+    # if not cursor.rowcount:
+    #     print('Invalid id')
+    #     return render(request, 'official_login.html', {'fail': True})
 
 
     for row in cursor:
@@ -55,6 +61,8 @@ def authOfficer(request):
             return render(request,'loggedin.html')
         else:
             return render(request, 'official_login.html', {'fail': True})
+        
+    return render(request, 'official_login.html', {'fail': True})
 
 
     
