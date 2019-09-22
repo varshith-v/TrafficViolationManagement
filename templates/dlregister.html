@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href = "bootstrap-4.3.1-dist\css\bootstrap.min.css" type= "text/css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script type = "text/javascript" src = "bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>
+<link href="style.css" type="text/css" rel="stylesheet">
+<link href="script.js" type="text/javascript" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> vehicle registration</title>
+<script>
+function validateForm() {
+  var x = document.forms["form"]["name"].value;
+  var y = /^[a-zA-Z]+$/;
+  if (x.match(y)) {
+    return true;
+  }
+  else
+  {
+  alert("please enter only letter");
+  return false;
+  }
+}
+function validatetelnum() {
+   var a = document.forms["form"]["tel"].value;
+   var z = /^\d{10}$/;
+   if(a.match(z)){
+	return true;
+	}
+	else
+	{
+	alert("enter valid contact number");
+	return false;
+	}
+} 
+</script>
+</head>
+<body>
+<center>
+<div class = "card bg-secondary col-sm-5">
+<div class ="Jumbatron">
+<h3><b>DRIVING LICENCE REGISTRATION<b></h3><br>
+</div>
+<form name="form" onsubmit="return validateForm()"  action="">
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">Name</span>
+</div>
+<input type ="text" placeholder= "your name" class ="form-control" name="name" required>
+</div>
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">Date</span>
+</div>
+<input type = "date" class ="form-control">
+</div>
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">contact</span>
+</div>
+<input type = "tel" class ="form-control" placeholder="your phone number" name="tel" required>
+</div>
+<div class = "input-group mb-3 ">
+<div class = "input-group-prepend">
+<span class="input-group-text">Address</span>
+</div>
+<input type ="text"placeholder= "home address" class ="form-control">
+</div>
+<span class="input-group-text">Categories</span>
+<div class = "form-check">
+ <label class = "form-check-label">
+ <input type = "checkbox" class = "form-check-input">Motorcycle without gear</label>
+ </div>
+ <div class = "form-check">
+ <label class = "form-check-label">
+ <input type = "checkbox" class = "form-check-input">Motorcycle with Gear</label>
+ </div>
+ <div class = "form-check">
+ <label class = "form-check-label">
+ <input type = "checkbox" class = "form-check-input">Light Motor Vehicle</label>
+ </div>
+ <div class = "form-check">
+ <label class = "form-check-label">
+ <input type = "checkbox" class = "form-check-input">Heavy Motor Vehicle</label>
+ </div>
+ <div class = "form-check">
+ <label class = "form-check-label">
+ <input type = "checkbox" class = "form-check-input">Medium Goods Vehicle</label>
+ </div>
+ <div class = "form-check">
+ <label class = "form-check-label">
+ <input type = "checkbox" class = "form-check-input">Heavy Goods Vehicle</label>
+</div>
+<input type ="submit" class="form-control" value= "submit" onclick = "return validatetelnum()"> 
+</form>
+</div>
+</center>
+<div class="footer">
+		<p id ="contact"> contact : +91 678736258 | 0821 - 6785403 </p>
+	</div>
+</body>
+</html>
+</body>
+</html>

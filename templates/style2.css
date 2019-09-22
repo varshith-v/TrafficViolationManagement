@@ -1,4 +1,3 @@
-
 body{
     background-image : url("main.jpg");
     background-size: cover;
@@ -21,37 +20,21 @@ h3{
 	float:right;
 	padding-right:100px;
 }
-.card{
-	background-color:#1a80c9;
-	margin-top:4cm;
-	opacity:0.5;
-}
-#text {
-	padding-top:20px;
-	font-size:70px;
-	font-family:"Times New Roman", Times, Serif;
-}
-.footer {
-	margin-top:100px;
-	height:1cm;
-	width:100%;
-	background-color:black;
-}
 #contact {
 	text-align:center;
 	color:#1a80c9;
 }
 .footer1{
 	padding-bottom:0px;
-	margin-top:525px;
+	margin-top:230px;
 	height:1cm;
 	width:100%;
 	background-color:black;
 }
 .card{
-	background-color:black;
-	opacity:0.5;
+	margin-top:50px;
+	margin-right:10px;
+	margin-left:10px;
 }
-
 
 
