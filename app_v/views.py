@@ -64,5 +64,52 @@ def authOfficer(request):
         
     return render(request, 'official_login.html', {'fail': True})
 
+def searchVehicle(request):
+    db = mysql.connect(
+    host = "localhost",
+    user = "remote",
+    passwd = "tekSystems",
+    database = "traffic"
+    )
+    cursor = db.cursor()
+    regNo = request.POST.get('reg_no')
+    
+    query = "SELECT * FROM vehicles WHERE reg_no = %s"
+    
+    values = (regNo,)
+    cursor.execute(query,values)
+    
 
+    for row in cursor:
+        return render(request, 'search.html',{'reg_no': row[0],'owner': row[1],'brand': row[2],'model': row[3],'date': row[4],'address': row[5]})
+        
+    return render(request, 'search.html', {'fail': True})
+
+
+def searchDL(request):
+    db = mysql.connect(
+    host = "localhost",
+    user = "remote",
+    passwd = "tekSystems",
+    database = "traffic"
+    )
+    cursor = db.cursor()
+    dlNo = request.POST.get('dl_no')
+    
+    query = "SELECT * FROM dl WHERE dl_no = %s"
+    
+    values = (dlNo,)
+    cursor.execute(query,values)
+    
+
+    for row in cursor:
+        return render(request, '__.html',{'reg_no': row[0],'owner': row[1],'brand': row[2],'model': row[3],'date': row[4],'address': row[5]})
+        
+    return render(request, '__.html', {'fail': True})
+
+def home(request):
+    return render(request,'main.html')
+
+def searchPage(request):
+    return render(request,'search.html')
     
