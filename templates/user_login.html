@@ -59,8 +59,8 @@ color: #f07e1a;
 <h1 id ="color">User Login</h1>
 <div class="container">
   <form action="/action_page.php">
-    <label for="usrname"><b>Vehicle Registration Number</b></label><br>
-    <input type="text" placeholder="Enter Vehicle Registration Number" required>
+    <label for="usrname"><b>Driving License Number</b></label><br>
+    <input type="text" placeholder="Enter DL Number" pattern="^[A-Z]{2}[0-9]{1,2}[ -][0-9]{11}$" title = "enter DL number" required>
 	<br>
     <label for="psw"><b>Password</b></label><br>
     <input type="password" placeholder="Enter Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
