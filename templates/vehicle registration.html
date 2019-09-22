@@ -1,95 +1,107 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<link rel="stylesheet" href = "bootstrap-4.3.1-dist\css\bootstrap.min.css" type= "text/css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script type = "text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<link href="{% static 'style.css' %}" type="text/css" rel="stylesheet">
-<link href="{% static 'script.js' %}" type="text/javascript" >
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> vehicle registration</title>
-<script>
-function validateForm() {
-  var x = document.forms["form"]["name"].value;
-  var y = /^[a-zA-Z]+$/;
-  if (x.match(y)) {
-    return true;
-  }
-  else
-  {
-  alert("please enter only letter");
-  return false;
-  }
-}
-function validateregnum() {
-   var a = document.forms["form"]["regnam"].value;
-   var z = /^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$/;
-   if(a.match(z)){
-	return true;
-	}
-	else
-	{
-	alert("enter valid registration number");
-	return false;
-	}
-} 
-</script>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist\css\bootstrap.min.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link href="{% static 'style.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'script.js' %}" type="text/javascript">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> vehicle registration</title>
+  <script>
+    function validateForm() {
+      var x = document.forms["form"]["name"].value;
+      var y = /^[a-zA-Z]+$/;
+      if (x.match(y)) {
+        return true;
+      }
+      else {
+        alert("please enter only letter");
+        return false;
+      }
+    }
+    function validateregnum() {
+      var a = document.forms["form"]["regnam"].value;
+      var z = /^[A-Z]{2}[ -][0-9]{1,2}(?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$/;
+      if (a.match(z)) {
+        return true;
+      }
+      else {
+        alert("enter valid registration number");
+        return false;
+      }
+    } 
+  </script>
 </head>
+
 <body>
-<center>
-<div class = "card bg-secondary col-sm-5">
-<div class ="Jumbatron">
-<h3><b>VEHICLE REGISTRATION<b></h3>
-</div>
-<form name="form" onsubmit="return validateForm()"  action="">
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Name</span>
-</div>
-<input type ="text" placeholder= "your name" class ="form-control" name="name" required>
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Address</span>
-</div>
-<input type ="text"placeholder= "home address" class ="form-control">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Vehicle brand</span>
-</div>
-<input type = "text"placeholder= "vehicle brand" class ="form-control">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">vehicle model</span>
-</div>
-<input type = "text"placeholder= "vehicle model" class ="form-control">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Registration Number</span>
-</div>
-<input type = "text"placeholder= "registered number" class ="form-control" name="regnam" pattern="(^[A-Z]{2})([ -][0-9]{1,2}((?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$" title = "enter the vehicle registration number">
-</div>
-<div class = "input-group mb-3 ">
-<div class = "input-group-prepend">
-<span class="input-group-text">Date</span>
-</div>
-<input type = "date" class ="form-control">
-</div>
-<input type ="submit" class="form-control" value= "submit" onclick = "return validateregnum()"> 
-</form>
-</div>
-</center>
-<div class="footer">
-		<p id ="contact"> contact : +91 678736258 | 0821 - 6785403 </p>
-	</div>
+  <center>
+    <div class="card bg-secondary col-sm-5">
+      <div class="Jumbatron">
+        <h3><b>VEHICLE REGISTRATION<b></h3>
+      </div>
+      <form name="form" onsubmit="return validateForm()" action="reg" method="POST">
+        {% csrf_token %}
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Name</span>
+          </div>
+          <input type="text" placeholder="your name" class="form-control" name="owner" required>
+        </div>
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Address</span>
+          </div>
+          <input type="text" placeholder="home address" class="form-control" name="address">
+        </div>
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Vehicle brand</span>
+          </div>
+          <input type="text" placeholder="vehicle brand" class="form-control" name="brand">
+        </div>
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">vehicle model</span>
+          </div>
+          <input type="text" placeholder="vehicle model" class="form-control" name="model">
+        </div>
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Registration Number</span>
+          </div>
+          <input type="text" placeholder="registered number" class="form-control" name="reg_no"
+            pattern="(^[A-Z]{2})([ -][0-9]{1,2}((?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$"
+            title="enter the vehicle registration number">
+        </div>
+        <div class="input-group mb-3 ">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Date</span>
+          </div>
+          <input type="date" class="form-control" name="date">
+        </div>
+        <input type="submit" class="form-control" value="submit" onclick="return validateregnum()">
+      </form>
+    </div>
+  </center>
+  <div class="footer">
+    <p id="contact"> contact : +91 678736258 | 0821 - 6785403 </p>
+  </div>
 </body>
+
 </html>
 </body>
+
 </html>
