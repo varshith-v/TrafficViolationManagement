@@ -1,5 +1,7 @@
 from django.shortcuts import render
 import trafficViolation.database as db
+import json
+import datetime
 
 # Create your views here.
 def index(request):
@@ -67,4 +69,26 @@ def lodge_complaint(request):
 
     return render(request,'result.html',{'result':'1 record successfully inserted'})
 
+# def output(request):
+#     connection = db.get_connection()
+#     cursor = connection.cursor()
 
+#     cursor.execute("select * from complaints")
+#     violations = cursor.fetchall()
+#     cursor.close()
+#     connection.close()
+
+#     keys = ['regnum','date','place','time','violation','fine_amount','status']
+#     dict = {}
+#     json_data = None
+#     for data in violations:
+#         t = data[2]
+#         for i in range(0,len(keys)):
+#             if i == 1:
+#                 dict[keys[i]] = str(t.strftime('%d-%b-%Y'))
+#             else:
+#                 dict[keys[i]] = data[i+1]
+#         json_data = json.dumps(dict)
+
+
+#     return render(request,'output.html',{'violations':json_data})
