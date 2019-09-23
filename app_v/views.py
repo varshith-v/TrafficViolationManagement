@@ -11,9 +11,9 @@ def loginPage(request):
 def registerVehicle(request):
     db = mysql.connect(
     host = "localhost",
-    user = "remote",
-    passwd = "tekSystems",
-    database = "traffic"
+    user = "root",
+    passwd = "12345",
+    database = "trafficViolation"
     )
     cursor = db.cursor()
 
@@ -37,16 +37,16 @@ def registerVehicle(request):
 def authOfficer(request):
     db = mysql.connect(
     host = "localhost",
-    user = "remote",
-    passwd = "tekSystems",
-    database = "traffic"
+    user = "root",
+    passwd = "12345",
+    database = "trafficviolation"
     )
     cursor = db.cursor()
     
     inputID = request.POST.get('id')
     inputPassword = request.POST.get('password')
     
-    query = "SELECT * FROM officers WHERE id = %s"
+    query = "SELECT * FROM official_login WHERE id = %s"
     
     values = (inputID,)
     cursor.execute(query,values)

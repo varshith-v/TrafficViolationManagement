@@ -22,6 +22,18 @@ def official_login(request):
 def complaint(request):
     return render(request,'complaint.html')
 
+def pay(request):
+    return render(request,'output.html')
+
+def dlRegister_page(request):
+    return render(request,'dlregister.html')
+
+def vehicleReg_page(request):
+    return render(request,'vehicle registration.html')
+
+def complaint_page(request):
+    return render(request,'complaint.html')
+
 def dlRegister(request):
     phNo = request.POST.get('phNo')
     name = request.POST.get('name')
@@ -44,7 +56,7 @@ def dlRegister(request):
     connection.commit()
     cursor.close()
     connection.close()
-    return render(request,'result.html',{'result':'1 record successfully inserted'})
+    return render(request,'vehicle registration.html')
 
 def lodge_complaint(request):
     complaints_dict = {"Driving without DL":500,"Not Wearing seat Belt":100,"Wrong parking":100,"Jumping Traffic Signals":100,
@@ -63,11 +75,12 @@ def lodge_complaint(request):
 
     cursor.execute(query,values)
     connection.commit()
-
+    print(cursor.rowcount,' row added')
     cursor.close()
     connection.close()
 
-    return render(request,'result.html',{'result':'1 record successfully inserted'})
+    return render(request,'complaint.html')
+
 
 # def output(request):
 #     connection = db.get_connection()
