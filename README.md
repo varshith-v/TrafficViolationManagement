@@ -6,12 +6,17 @@ Introduction:
 - The users can also know the violation and the penalty amount to be paid by them which reduces the human work.
 - The website contains a login page for user and admin which redirects to different pages.
 - The User login leads to a page where they can get all the information about their vehicles and also penalty amount if to be paid.
-- The admin login have the option of updating and adding the new vehicles.
+- The Admin login has the options for the following:
+   - New Driving Licence registration
+   - New Vehicle registration
+   - Lodging complaints against violation of traffic rules
+   - Search Vehicles (in Database)
+   - Search DL (in Database)
 
 
 Installation process:
 
-1) Before starting make sure python 3 and pip is installed in your system.
+1) Before starting, make sure python 3 and pip is installed in your system.
 
 2) Install Virtual Environment wrapper using the command > pip install virtualenvwrapper-win 
 
