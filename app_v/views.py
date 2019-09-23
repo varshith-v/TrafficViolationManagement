@@ -86,6 +86,38 @@ def searchVehicle(request):
     return render(request, 'search.html', {'fail': True})
 
 
+def authUser(request):
+    db = mysql.connect(
+    host = "localhost",
+    user = "remote",
+    passwd = "tekSystems",
+    database = "traffic"
+    )
+    cursor = db.cursor()
+    
+    inputID = request.POST.get('id')
+    inputPassword = request.POST.get('password')
+    
+    query = "SELECT * FROM user WHERE dl_number = %s"
+    
+    values = (inputID,)
+    cursor.execute(query,values)
+    
+    # if not cursor.rowcount:
+    #     print('Invalid id')
+    #     return render(request, 'official_login.html', {'fail': True})
+
+
+    for row in cursor:
+        if row[3] == inputPassword:
+            return render(request,'loggedin.html')
+        else:
+            return render(request, 'user_login.html', {'fail': True})
+        
+    return render(request, 'user_login.html', {'fail': True})
+
+
+
 def searchDL(request):
     db = mysql.connect(
     host = "localhost",
@@ -115,6 +147,9 @@ def searchPage(request):
 
 def dlRegPage(request):
     return render(request,'dlregister.html')
+
+def userRegPage(request):
+    return render(request,'user_reg.html')
 
 def searchCompPage(request):
     return render(request,'searchComplaints.html')
