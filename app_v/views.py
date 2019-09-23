@@ -64,5 +64,61 @@ def authOfficer(request):
         
     return render(request, 'official_login.html', {'fail': True})
 
+def searchVehicle(request):
+    db = mysql.connect(
+    host = "localhost",
+    user = "root",
+    passwd = "12345",
+    database = "trafficViolation"
+    )
+    cursor = db.cursor()
+    regNo = request.POST.get('reg_no')
+    
+    query = "SELECT * FROM vehicle WHERE reg_no = %s"
+    
+    values = (regNo,)
+    cursor.execute(query,values)
+    
 
+    for row in cursor:
+        return render(request, 'search.html',{'reg_no': row[0],'owner': row[1],'brand': row[2],'model': row[3],'date': row[4],'address': row[5]})
+        
+    return render(request, 'search.html', {'fail': True})
+
+
+def searchDL(request):
+    db = mysql.connect(
+    host = "localhost",
+    user = "root",
+    passwd = "12345",
+    database = "trafficViolation"
+    )
+    cursor = db.cursor()
+    dlNo = request.POST.get('dl_no')
+    
+    query = "SELECT * FROM drivinglicence WHERE drivinglicencenumber = %s"
+    
+    values = (dlNo,)
+    cursor.execute(query,values)
+    
+
+    for row in cursor:
+        return render(request, 'search.html',{'dlno': row[0],'name': row[1],'dob': row[2],'addr': row[3],'phone': row[4],'categ': row[5]})
+        
+    return render(request, 'search.html', {'fail': True})
+
+def home(request):
+    return render(request,'main.html')
+
+def searchPage(request):
+    return render(request,'search.html')
+
+def dlRegPage(request):
+    return render(request,'dlregister.html')
+
+def searchCompPage(request):
+    return render(request,'searchComplaints.html')
+
+def searchComplaints(request):
+    return render(request,'searchComplaints.html')
     

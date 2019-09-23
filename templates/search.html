@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist\css\bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="{% static 'style2.css' %}" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle violence management</title>
+</head>
+
+<body>
+    <div class="max-width-container-header">
+        <h3>
+            <center>TRAFFIC VIOLATION MANAGEMENT</center>
+        </h3>
+        <div class="right">
+            <a href="{% url 'index'%}"> Home<i class="fas fa-home">&nbsp | &nbsp </i></a>
+            <a href="{% url 'aboutus'%}">About Us <i class="fas fa-file"> &nbsp | &nbsp </i> </a>
+            <a href="{% url 'service'%}">Services <i class="fas fa-list-alt"></i></a>
+            <div class="dropdown">
+                <button type="button" class="btn btn-link" data-toggle="dropdown">
+                    Login &nbsp<i class="fas fa-user"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="user.html">User Login</a>
+                    <a class="dropdown-item" href="admin.html">Admin Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            <h3>Vehicle Search</h3>
+                            <form action="searchV" method="POST">
+                                {% csrf_token %}
+                            <div class="input-group mb-3">
+                                <input type="text" name="reg_no" class="form-control" placeholder="Search"
+                                    aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" action="searchV" type="submit">Go</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Owner:  {{owner}}</li>
+                            <li class="list-group-item">Brand:  {{brand}}</li>
+                            <li class="list-group-item">Model:  {{model}}</li>
+                            <li class="list-group-item">Date-of-reg:  {{date}}</li>
+                            <li class="list-group-item">Address:  {{address}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                <h3>DL Search</h3>
+                                <form action="searchDL" method="POST">
+                                        {% csrf_token %}
+                                <div class="input-group mb-3">
+                                    <input type="text" name="dl_no" class="form-control" placeholder="Search"
+                                        aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="submit">Go</button>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Name:  {{name}}</li>
+                                <li class="list-group-item">DOB:  {{dob}}</li>
+                                <li class="list-group-item">Categories:  {{categ}}</li>
+                                <li class="list-group-item">Address:  {{addr}}</li>
+                                <li class="list-group-item">Phone No:  {{phone}}</li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="footer1">
+            <p id="contact"> contact : +91 678736258 | 0821-6754601 <p>
+        </div>
+</body>
+
+</html>
