@@ -55,7 +55,7 @@ color: #f07e1a;
 	background-size:cover;
 }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script type="text/javascript">
   $(document).ready(function() {
       $(function() {
@@ -84,6 +84,7 @@ color: #f07e1a;
 <h1 id ="color">Official Login</h1>
 <div class="container">
   <form action="auth" method="POST">
+    {% csrf_token %}
     <label for="usrname"><b>Username</b></label><br>
     <input type="text" name="id" placeholder="Enter Username" required>
 	<br>
@@ -92,12 +93,12 @@ color: #f07e1a;
 
     <input type="submit" value="Submit">
   </form>
-  {% if fail %}
-    <div id="some_flag" title="Some Flag">
-        <p>Invalid Credentials</p>
-    </div>
+    {% if fail %}
+      <script>alert('Invalid credentials!!')</script>
+    
     {% endif %}
 </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
