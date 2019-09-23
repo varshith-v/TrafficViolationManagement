@@ -1,7 +1,7 @@
 input {
    margin-top: 3px;
    margin-bottom: 4px;   
-   width:100%;  
+   width:70%;  
 }
 input[type=submit] {
 background-color:#2ed95b ;
@@ -10,7 +10,7 @@ margin-bottom:30px;
 width:70%;
 }
 .Jumbatron{
-	color:#ecf587;
+	color:#242b26;
 }
 body{
 	padding-top:50px;

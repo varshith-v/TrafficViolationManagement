@@ -58,12 +58,14 @@
 </head>
 
 <body>
+	{%block content%}
 	<center>
 		<div class="card bg-secondary col-sm-5">
 			<div class="Jumbatron">
 				<h3><b>USER REGISTRATION<b></h3>
 			</div>
-			<form name="form" onsubmit="return validateForm()" method="post">
+			<form name="form" onsubmit="return validateForm()" method="POST" action="register_user">
+					{% csrf_token %}
 				<div class="input-group mb-3 ">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Name</span>
@@ -74,7 +76,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">Registration number</span>
 					</div>
-					<input type="text" placeholder="registered number" class="form-control" name="regnam"
+					<input type="text" placeholder="registered number" class="form-control" name="regnum"
 						pattern="(^[A-Z]{2})([ -][0-9]{1,2}((?: [A-Z])?(?: [A-Z]*)? [0-9]{4}$"
 						title="enter the vehicle registration number eg:KA 09 EH 1908" required>
 				</div>
@@ -83,13 +85,13 @@
 						<span class="input-group-text">Driving Licence No</span>
 					</div>
 					<input type="text" placeholder="Enter DL number" class="form-control"
-						pattern="^[A-Z]{2}[0-9]{1,2}[ -][0-9]{11}$" title="enter DL number" required>
+						pattern="^[A-Z]{2}[0-9]{1,2}[ -][0-9]{11}$" title="enter DL number" name = "dlNum" required>
 				</div>
 				<div class="input-group mb-3 ">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Create Password</span>
 					</div>
-					<input type="password" id="psw" placeholder="set your password" class="form-control"
+					<input type="password" id="psw" placeholder="set your password" class="form-control" 
 						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 						title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
 						required>
@@ -98,13 +100,14 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">Confirm Password</span>
 					</div>
-					<input type="password" id="confirmpsw" placeholder="retype your password" class="form-control"
+					<input type="password" id="confirmpsw" placeholder="retype your password" class="form-control" name="password"
 						onclick="return validatepsw()" required>
 				</div>
 				<input type="submit" class="form-control" value="sign up" onsubmit="return validateregnum()">
 			</form>
 		</div>
 	</center>
+	{% endblock %}
 </body>
 
 </html>
