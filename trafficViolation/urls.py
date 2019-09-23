@@ -12,5 +12,7 @@ urlpatterns = [
     path('dlRegister_page',views.dlRegister_page,name="dlRegister_page"),
     path('pay',views.pay,name="pay"),
     path('vehicleReg_page',views.vehicleReg_page,name="vehicleReg_page"),
-    path('complaint_page',views.complaint_page,name = "complaint_page")
+    path('complaint_page',views.complaint_page,name = "complaint_page"),
+    path('user_reg',views.user_registration_page,name="user_reg"),
+    path('register_user',views.register_user, name = "register_user")
 ] 

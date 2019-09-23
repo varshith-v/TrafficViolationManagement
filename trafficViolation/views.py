@@ -2,6 +2,7 @@ from django.shortcuts import render
 import trafficViolation.database as db
 import json
 import datetime
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index(request):
@@ -24,6 +25,9 @@ def complaint(request):
 
 def pay(request):
     return render(request,'payFine.html')
+
+def user_registration_page(request):
+    return render(request,'user_reg.html')
 
 def dlRegister_page(request):
     return render(request,'dlregister.html')
@@ -81,6 +85,27 @@ def lodge_complaint(request):
 
     return render(request,'complaint.html')
 
+
+@csrf_exempt
+def register_user(request):
+    reg_num = request.POST.get('regnum')
+    name = request.POST.get('name')
+    dlnum = request.POST.get('dlNum')
+    password = request.POST.get('password')
+
+    connection = db.get_connection()
+    cursor = connection.cursor()
+
+    query = "INSERT INTO user_login (`name`, `reg_num`, `dl_num`, `password`) VALUES (%s,%s,%s,%s);"
+    value = (name,reg_num,dlnum,password)
+    
+    cursor.execute(query,value)
+
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+    return render(request,'user_login.html')
 
 # def output(request):
 #     connection = db.get_connection()
