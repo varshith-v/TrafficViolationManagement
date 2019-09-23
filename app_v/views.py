@@ -12,8 +12,8 @@ def registerVehicle(request):
     db = mysql.connect(
     host = "localhost",
     user = "root",
-    passwd = "12345",
-    database = "trafficViolation"
+    passwd = "password",
+    database = "traffic"
     )
     cursor = db.cursor()
 
@@ -38,15 +38,15 @@ def authOfficer(request):
     db = mysql.connect(
     host = "localhost",
     user = "root",
-    passwd = "12345",
-    database = "trafficviolation"
+    passwd = "password",
+    database = "traffic"
     )
     cursor = db.cursor()
     
     inputID = request.POST.get('id')
     inputPassword = request.POST.get('password')
     
-    query = "SELECT * FROM official_login WHERE id = %s"
+    query = "SELECT * FROM officers WHERE id = %s"
     
     values = (inputID,)
     cursor.execute(query,values)
@@ -68,8 +68,8 @@ def searchVehicle(request):
     db = mysql.connect(
     host = "localhost",
     user = "root",
-    passwd = "12345",
-    database = "trafficViolation"
+    passwd = "password",
+    database = "traffic"
     )
     cursor = db.cursor()
     regNo = request.POST.get('reg_no')
@@ -122,8 +122,8 @@ def searchDL(request):
     db = mysql.connect(
     host = "localhost",
     user = "root",
-    passwd = "12345",
-    database = "trafficViolation"
+    passwd = "password",
+    database = "traffic"
     )
     cursor = db.cursor()
     dlNo = request.POST.get('dl_no')
@@ -138,6 +138,58 @@ def searchDL(request):
         return render(request, 'search.html',{'dlno': row[0],'name': row[1],'dob': row[2],'addr': row[3],'phone': row[4],'categ': row[5]})
         
     return render(request, 'search.html', {'fail': True})
+
+def searchComp(request):
+    db = mysql.connect(
+    host = "localhost",
+    user = "root",
+    passwd = "password",
+    database = "traffic"
+    )
+    cursor = db.cursor()
+    regNo = request.POST.get('reg_no')
+    
+    query = "SELECT * FROM complaints WHERE regNum = %s"
+    
+    values = (regNo,)
+    cursor.execute(query,values)
+    
+    # for row in cursor:
+    #     return render(request, 'search.html',{'dlno': row[0],'name': row[1],'dob': row[2],'addr': row[3],'phone': row[4],'categ': row[5]})
+    
+    json = dict()
+    idList = []
+    regNumList = []
+    dateList = []
+    placeList = []
+    timeList = []
+    violList = []
+    fineList = []
+    statusList = []
+    for row in cursor:
+        print(row)
+        idList.append(row[0])
+        regNumList.append(row[1])
+        dateList.append(row[2])
+        placeList.append(row[3])
+        timeList.append(row[4])
+        violList.append(row[5])
+        fineList.append(row[6])
+        statusList.append(row[7])
+    json['reg'] = regNumList
+    json['date'] = dateList
+    json['id'] = idList
+    json['place'] = placeList
+    json['time'] = timeList
+    json['viol'] = violList
+    json['fine'] = fineList
+    json['status'] = statusList
+    
+    rows = {'rows':json}
+    print(rows)
+    return render(request,'searchComplaints.html',json)
+        
+    
 
 def home(request):
     return render(request,'main.html')
