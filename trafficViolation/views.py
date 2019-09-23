@@ -11,7 +11,7 @@ def aboutus(request):
     return render(request,'aboutus.html')
 
 def service(request):
-    return render(request,'user_login.html')
+    return render(request,'service.html')
 
 def user_login(request):
     return render(request,'user_login.html')
