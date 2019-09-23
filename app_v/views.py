@@ -74,7 +74,7 @@ def searchVehicle(request):
     cursor = db.cursor()
     regNo = request.POST.get('reg_no')
     
-    query = "SELECT * FROM vehicles WHERE reg_no = %s"
+    query = "SELECT * FROM vehicle WHERE reg_no = %s"
     
     values = (regNo,)
     cursor.execute(query,values)
@@ -96,16 +96,16 @@ def searchDL(request):
     cursor = db.cursor()
     dlNo = request.POST.get('dl_no')
     
-    query = "SELECT * FROM dl WHERE dl_no = %s"
+    query = "SELECT * FROM drivinglicence WHERE drivinglicencenumber = %s"
     
     values = (dlNo,)
     cursor.execute(query,values)
     
 
     for row in cursor:
-        return render(request, '__.html',{'reg_no': row[0],'owner': row[1],'brand': row[2],'model': row[3],'date': row[4],'address': row[5]})
+        return render(request, 'search.html',{'dlno': row[0],'name': row[1],'dob': row[2],'addr': row[3],'phone': row[4],'categ': row[5]})
         
-    return render(request, '__.html', {'fail': True})
+    return render(request, 'search.html', {'fail': True})
 
 def home(request):
     return render(request,'main.html')
