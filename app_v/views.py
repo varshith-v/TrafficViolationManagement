@@ -112,4 +112,13 @@ def home(request):
 
 def searchPage(request):
     return render(request,'search.html')
+
+def dlRegPage(request):
+    return render(request,'dlregister.html')
+
+def searchCompPage(request):
+    return render(request,'searchComplaints.html')
+
+def searchComplaints(request):
+    return render(request,'searchComplaints.html')
     
