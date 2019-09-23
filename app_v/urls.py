@@ -13,5 +13,6 @@ urlpatterns = [
     path('dlReg',views.dlRegPage, name='searchDL'),
     path('searchComplaints',views.searchComplaints, name='searchComp'),
     path('searchCompPage',views.searchCompPage, name='searchCompPage'),
-    path('userRegPage',views.userRegPage, name='searchCompPage'),
+    path('userRegPage',views.userRegPage, name='userPage'),
+    path('searchComp',views.searchComp, name='searchComp'),
 ]
