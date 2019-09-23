@@ -1,75 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-input {
-  width: 50%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-}
-input[type=submit] {
-  background-color: #0e960e;
-  color: white;
-}
-}
-.container {
-  background-color: white;
-  padding: 16px;
-  max-width: 300px;
-  margin: 20px;
-  right: 0;
-  position: absolute;
-}
-#message {
-  display:none;
-  background: #f1f1f1;
-  color: #000;
-  position: relative;
-  padding: 20px;
-  margin-top: 10px;
-}
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-.right {
-  right: 0;
-}
-#color{
-color: #f07e1a;
-}
-#imag{
-	background-image:url("user.jpg");
-	background-size:cover;
-}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist\css\bootstrap.min.css" type="text/css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="bootstrap-4.3.1-dist\js\bootstrap.min.js"></script>
+	<link href="{% static 'user_login.css' %}" type="text/css" rel="stylesheet">
 </head>
-<body id ="imag">
-<div class="split right">
-<h1 id ="color">User Login</h1>
-<div class="container">
-  <form action="/action_page.php">
-    <label for="usrname"><b>Driving License Number</b></label><br>
-    <input type="text" placeholder="Enter DL Number" pattern="^[A-Z]{2}[0-9]{1,2}[ -][0-9]{11}$" title = "enter DL number" required>
-	<br>
-    <label for="psw"><b>Password</b></label><br>
-    <input type="password" placeholder="Enter Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-    <a href = "loggedin.html">
-    <input type="Submit" value="Submit"></a>
-  </form>
-  <a href="user_reg.html">Register now</a>
-</div>
-</div>
+
+<body id="imag">
+  <div class="split right">
+    <h1 id="color">User Login</h1>
+    <div class="container">
+      <form action="/action_page.php">
+        <label for="usrname"><b>Driving License Number</b></label><br>
+        <input type="text" placeholder="Enter DL Number" pattern="^[A-Z]{2}[0-9]{1,2}[ -][0-9]{11}$"
+          title="enter DL number" required>
+        <br>
+        <label for="psw"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password"
+          title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+          required>
+        <a href="loggedin.html">
+          <input type="Submit" value="Submit"></a>
+      </form>
+      <a href="user_reg.html">Register now</a>
+    </div>
+  </div>
 </body>
+
 </html>

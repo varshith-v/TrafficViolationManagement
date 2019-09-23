@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        {% block content %}
+        <table>
+                <tr>
+                    <th>regnum</th>
+                    <th>date</th>
+                    <th>place</th>
+                    <th>violation</th>
+                    <th>fine_amount</th>
+                    <th>status</th>
+                </tr>
+                {% for key,value in violations.items %}
+                    <tr>
+                        <td>{{data.regnum}}</td>
+                        <td>{{data.date}}</td>
+                        <td>{{data.place}}</td>
+                        <td>{{data.violation}}</td>
+                        <td>{{data.fine_amount}}</td>
+                        <td>{{data.status}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endblock %}
+    </form>
+</body>
+</html>
