@@ -23,7 +23,7 @@ def complaint(request):
     return render(request,'complaint.html')
 
 def pay(request):
-    return render(request,'output.html')
+    return render(request,'payFine.html')
 
 def dlRegister_page(request):
     return render(request,'dlregister.html')
