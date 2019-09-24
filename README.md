@@ -34,3 +34,5 @@ Installation process:
 
 9) The above command creates a server and provides the IP address of the server. 
    All you have to do is copy the IP address and paste it in your browser. The webpage will be loaded.
+   
+Database dump files are included in the project.
